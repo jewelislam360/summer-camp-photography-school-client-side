@@ -9,6 +9,7 @@ import PrivetRouts from "./PrivetRouts";
 import Secret from "../Pages/Shared/Secret/Secret";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import Dashboard from "../Layouts/Dashboard";
+import ManageUsers from "../Pages/Dashbord/ManageUsers/ManageUsers";
 
 export const router = createBrowserRouter([
   {
@@ -38,6 +39,11 @@ export const router = createBrowserRouter([
   {
     path:"/dashboard",
     element:<Dashboard></Dashboard>,
-    
+    children:[
+      {
+        path:'manageusers',
+        element:<ManageUsers></ManageUsers>
+      }
+    ]
   }
 ]);
