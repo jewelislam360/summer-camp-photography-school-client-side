@@ -8,6 +8,7 @@ import Register from "../Pages/Register/Register";
 import PrivetRouts from "./PrivetRouts";
 import Secret from "../Pages/Shared/Secret/Secret";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
+import Dashboard from "../Layouts/Dashboard";
 
 export const router = createBrowserRouter([
   {
@@ -34,4 +35,9 @@ export const router = createBrowserRouter([
     ]
 
   },
+  {
+    path:"/dashboard",
+    element:<Dashboard></Dashboard>,
+    
+  }
 ]);
