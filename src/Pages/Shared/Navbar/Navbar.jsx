@@ -17,16 +17,6 @@ const Navbar = () => {
     
     <li><Link to="/">Home</Link></li>
     <li><Link to="/secret">Secret</Link></li>
-    {
-      user? 
-      <>
-      <button onClick={handelLogout} className="btn btn-ghost">Logout</button>
-      </> 
-      :
-      <>
-      <li><Link to="/login">Login</Link></li>
-      </>
-    }
 
 
   </>
@@ -52,7 +42,30 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+         {
+                        user ?
+
+                            <div className="flex align-middle">
+                                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                        <img src={`${user.photoURL}`} />
+                                    </div>
+                                    </label>
+                                    <div>
+                                        <Link onClick={handelLogout}>Logout</Link>
+                                    </div>
+                                
+
+                            </div>
+
+                            :
+
+                            <div>
+                                <Link to="/login">Login</Link>
+                            </div>
+
+
+                    }
         </div>
       </div>
 
