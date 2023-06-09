@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { AuthContext } from "../../Provider/Authprovider";
 import Swal from "sweetalert2";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import SocialLogin from "../../Components/SocialLogin/SocialLogin";
 
 
 const Login = () => {
@@ -67,7 +68,9 @@ const Login = () => {
                             <p>Do not have an account? <Link className='text-warning font-bold' to="/register">Sign up</Link> </p>
 
                         </form>
+                        <SocialLogin></SocialLogin>
                     </div>
+                    
                 </div>
             </div>
 
