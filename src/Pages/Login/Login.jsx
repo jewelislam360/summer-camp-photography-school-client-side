@@ -1,11 +1,36 @@
 
+import { useContext } from "react";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
+import { AuthContext } from "../../Provider/Authprovider";
+import Swal from "sweetalert2";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 
 const Login = () => {
+    const {signIn, }=useContext(AuthContext);
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const navigate =useNavigate();
+    const location =useLocation();
+
+    const from =location.state?.from?.pathname || '/';
+
+    const onSubmit = data => {
+        signIn(data.email, data.password)
+        .then(result =>{
+            const loggeduser =result.user;
+            console.log(loggeduser);
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Successfully Login',
+                showConfirmButton: false,
+                timer: 1500
+              });
+              navigate(from, {from: location});
+        })
+        console.log(data)
+    };
     return (
 
         <div>
@@ -23,7 +48,7 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="email" placeholder="email" {...register("Email", { required: true })} className="input input-bordered" />
+                                <input type="email" placeholder="email" {...register("email", { required: true })} className="input input-bordered" />
                                 {errors.Email && <span className="text-warning">This field is required</span>}
                             </div>
                             <div className="form-control">
@@ -39,6 +64,7 @@ const Login = () => {
                                 <input className="btn btn-primary" type="submit" value="Login" />
                                 
                             </div>
+                            <p>Do not have an account? <Link className='text-warning font-bold' to="/register">Sign up</Link> </p>
 
                         </form>
                     </div>

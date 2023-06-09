@@ -1,10 +1,31 @@
 
+import { useContext } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
+import { AuthContext } from '../../Provider/Authprovider';
+import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const {createUser }=useContext(AuthContext);
+    const onSubmit = data =>{
+
+        createUser(data.email, data.password)
+        .then(result =>{
+            const loggeduser =result.user;
+            console.log(loggeduser);
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Successfully Sign up',
+                showConfirmButton: false,
+                timer: 1500
+              })
+        })
+
+        console.log(data)
+    };
     return (
         <div>
             <Helmet>
@@ -62,6 +83,7 @@ const Register = () => {
                                 <input className="btn btn-primary" type="submit" value="Register" />
 
                             </div>
+                            <p>Already have an a account? <Link className='text-warning font-bold' to="/login">Login</Link> </p>
 
                         </form>
                     </div>
