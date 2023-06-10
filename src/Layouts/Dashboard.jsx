@@ -1,10 +1,13 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { FaBook, FaSwatchbook, } from "react-icons/fa";
+import useAdmin from "../Hooks/useAdmin";
 
 
 
 const Dashboard = () => {
     const isAdmin = true;
+    const isInstructor = false;
+    // const {isAdmin}=useAdmin();
     return (
         <div>
             <div className="drawer lg:drawer-open">
@@ -32,8 +35,8 @@ const Dashboard = () => {
                                 :
                                 isInstructor ?
                                     <>
-                                        <li><NavLink to="/myselectedclass"><FaBook></FaBook>Add A Class</NavLink></li>
-                                        <li><NavLink to="myenrollclass"><FaSwatchbook></FaSwatchbook>My Class</NavLink></li>
+                                        <li><NavLink to="/dashboard/addaclass"><FaBook></FaBook>Add A Class</NavLink></li>
+                                        <li><NavLink to="/dashboard/myclass"><FaSwatchbook></FaSwatchbook>My Class</NavLink></li>
                                         
                                         <div className="divider"></div>
                                         <li><NavLink to="/">Home</NavLink></li>

@@ -49,6 +49,28 @@ const ManageUsers = () => {
             }
         })
     }
+    const handelDelete=(id)=>(
+        fetch(`http://localhost:5000/users/${id}`,{
+            method:"DELETE"
+        })
+        .then(res=>res.json())
+        .then(data=>{
+            console.log(data);
+            if(data.deletedCount){
+                refetch()
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: 'Delete is success',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+
+            }
+
+        })
+
+    )
     return (
         <div className="w-full">
             <Helmet>
@@ -76,7 +98,7 @@ const ManageUsers = () => {
                             <td>{user.email}</td>
                             <td>{user.role === 'admin'? 'admin': <button onClick={()=>handelMakeAdmin(user)} className="btn btn-ghost bg-warning"><FaUsers></FaUsers></button>}</td>
                             <td>{user.role2 === 'instructor'? 'instructor': <button  onClick={()=>handelMakeInstructor(user)}className="btn btn-ghost bg-warning"><FaUsers></FaUsers></button>}</td>
-                            <td><button className="btn btn-ghost bg-red-600"><FaTrashAlt></FaTrashAlt></button></td>
+                            <td><button onClick={()=>handelDelete(user._id)} className="btn btn-ghost bg-red-600"><FaTrashAlt></FaTrashAlt></button></td>
                         </tr>)
                         }
                         
