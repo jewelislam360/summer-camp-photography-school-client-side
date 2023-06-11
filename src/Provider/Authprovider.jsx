@@ -14,10 +14,12 @@ const Authprovider = ({children}) => {
     const googleProvider = new GoogleAuthProvider();
 
     // update user profile
-    const updateUserProfile = (currUser, name, photo)=>{
-        return updateProfile(auth, currUser, {
+    const updateUserProfile = (name, photo)=>{
+        console.log(name);
+        return updateProfile(auth.currentUser, {
             displayName: name, photoURL: photo
           })
+
     }
 
     const googleSignIn = () =>{

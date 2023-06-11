@@ -10,6 +10,7 @@ import Secret from "../Pages/Shared/Secret/Secret";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import Dashboard from "../Layouts/Dashboard";
 import ManageUsers from "../Pages/Dashbord/ManageUsers/ManageUsers";
+import AddAClass from "../Pages/Dashbord/Instructor/AddAClass/AddAClass";
 
 export const router = createBrowserRouter([
   {
@@ -37,11 +38,19 @@ export const router = createBrowserRouter([
 
   },
   {
-    path:"/dashboard",
+    path:"dashboard",
     element:<Dashboard></Dashboard>,
     children:[
       {
         path:'manageusers',
+        element:<ManageUsers></ManageUsers>
+      },
+      {
+        path:'addaclass',
+        element:<AddAClass></AddAClass>
+      },
+      {
+        path:'myclass',
         element:<ManageUsers></ManageUsers>
       }
     ]

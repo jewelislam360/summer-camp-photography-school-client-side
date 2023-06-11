@@ -1,13 +1,16 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { FaBook, FaSwatchbook, } from "react-icons/fa";
 import useAdmin from "../Hooks/useAdmin";
+import useInstructor from "../Hooks/useInstructor";
 
 
 
 const Dashboard = () => {
-    const isAdmin = true;
-    const isInstructor = false;
-    // const {isAdmin}=useAdmin();
+    // const isAdmin = true;
+    // const isInstructor = true;
+   const [isAdmin]=useAdmin();
+    const [isInstructor]= useInstructor();
+    console.log(isAdmin, isInstructor);
     return (
         <div>
             <div className="drawer lg:drawer-open">

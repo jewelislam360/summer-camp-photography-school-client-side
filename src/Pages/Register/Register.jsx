@@ -17,6 +17,7 @@ const Register = () => {
         .then(result =>{
             const loggeduser =result.user;
             console.log(loggeduser);
+
             updateUserProfile(data.name, data.photoURL)
             .then(()=>{
                 const saveUser ={name: data.name, email: data.email}
@@ -77,7 +78,7 @@ const Register = () => {
                                 <label className="label">
                                     <span className="label-text">Photo URL</span>
                                 </label>
-                                <input type="taxt" placeholder="photo URL" {...register("photoURL", { required: true })} className="input input-bordered" />
+                                <input type="text" placeholder="photo URL" {...register("photoURL", { required: true })} className="input input-bordered" />
                                 {errors.name && <span className="text-warning">Photo URL is required</span>}
                             </div>
                             <div className="form-control">
