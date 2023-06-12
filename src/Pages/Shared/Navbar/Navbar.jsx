@@ -16,6 +16,7 @@ const Navbar = () => {
   const navOption = <>
     
     <li><Link to="/">Home</Link></li>
+    <li><Link to="/allclass">All Class</Link></li>
     <li><Link to="/secret">Secret</Link></li>
 
     <li><Link to="/dashboard">Dashboard</Link></li>
