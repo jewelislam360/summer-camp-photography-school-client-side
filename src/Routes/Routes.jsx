@@ -15,6 +15,8 @@ import Instructors from "../Pages/Instructors/Instructors";
 import UserSelectClass from "../Pages/Dashbord/UserSelectClass/UserSelectClass";
 import Payment from "../Pages/Dashbord/Payment/Payment";
 import MyEnrollClass from "../Pages/Dashbord/MyEnrollClass/MyEnrollClass";
+import PaymentHistory from "../Pages/Dashbord/PaymentHistory/PaymentHistory";
+import PrivetRouts from "./PrivetRouts";
 
 export const router = createBrowserRouter([
   {
@@ -48,7 +50,7 @@ export const router = createBrowserRouter([
   },
   {
     path:"dashboard",
-    element:<Dashboard></Dashboard>,
+    element:<PrivetRouts><Dashboard></Dashboard></PrivetRouts>,
     children:[
       {
         path:'manageusers',
@@ -74,6 +76,13 @@ export const router = createBrowserRouter([
         path:'myenrollclass',
         element:<MyEnrollClass></MyEnrollClass>
       },
+      {
+        path:'paymenthistory',
+        element:<PaymentHistory></PaymentHistory>
+      },
+      
+
+      
       {
         path:'/dashboard/payment/:id',
         element:<Payment></Payment>,

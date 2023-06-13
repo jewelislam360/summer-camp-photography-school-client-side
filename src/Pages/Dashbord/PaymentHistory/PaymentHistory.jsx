@@ -1,0 +1,91 @@
+import { useQuery } from "@tanstack/react-query";
+import useAuth from "../../../Hooks/useAuth";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
+
+const PaymentHistory = (email) => {
+    const auth = useAuth();
+    // console.log(user);
+    console.log(email);
+    const { data: myEnrollClass = [] } = useQuery({
+        queryKey: ['myEnrollClass'],
+        queryFn: async () => {
+            const res = await fetch(`http://localhost:5000/myenrollclass/${auth.user.email}`);
+            return res.json(email);
+        }
+
+    })
+    return (
+        <div>
+        <SectionTitle
+            heading="My Payment History"
+
+        ></SectionTitle>
+        <div className="overflow-x-auto">
+            <table className="table">
+                {/* head */}
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Class Img</th>
+                        <th>Class Name</th>
+                        <th>Email</th>
+                        <th>transactionId</th>
+                        <th>date & Time</th>
+                        <th>price</th>
+                        <th>paymentClass Id</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+
+                        myEnrollClass?.map((classes, i) => <tr key={classes._id}>
+                            <th>
+                                {i + 1}
+                            </th>
+                            <td>
+                                <div className="flex items-center space-x-3">
+                                    <div className="avatar">
+                                        <div className="mask mask-squircle w-12 h-12">
+                                            <img src={classes?.classImage} alt="Avatar Tailwind CSS Component" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </td>
+                            <td>
+                                <span className="badge badge-ghost badge-sm">{classes?.className}</span>
+                            </td>
+                            <td>
+                                <span className="badge badge-ghost badge-sm">{classes?.email}</span>
+                            </td>
+
+                            <td>
+                                <span className="badge badge-ghost badge-sm">{classes?.transactionId}</span>
+                            </td>
+                            <td>
+                                <span className="badge badge-ghost badge-sm">{classes?.date}</span>
+                            </td>
+                            <td>
+                                <span className="badge badge-ghost badge-sm">{classes?.price}</span>
+                            </td>
+                            <td>
+                                <span className="badge badge-ghost badge-sm">{classes?.paymentClassId}</span>
+                            </td>
+
+                            
+
+                        </tr>
+                        )
+                    }
+
+                </tbody>
+
+
+            </table>
+        </div>
+
+    </div>
+    );
+};
+
+export default PaymentHistory;

@@ -1,5 +1,5 @@
 import { NavLink, Outlet } from "react-router-dom";
-import { FaBook, FaSwatchbook, } from "react-icons/fa";
+import { FaAlipay, FaBook, FaHome, FaSwatchbook, } from "react-icons/fa";
 import useAdmin from "../Hooks/useAdmin";
 import useInstructor from "../Hooks/useInstructor";
 
@@ -32,7 +32,7 @@ const Dashboard = () => {
                                     <li><NavLink to="/dashboard/manageclasses" ><FaSwatchbook></FaSwatchbook>Manage Class</NavLink></li>
                                     
                                     <div className="divider"></div>
-                                    <li><NavLink to="/">Home</NavLink></li>
+                                    <li><NavLink to="/"><FaHome></FaHome>Home</NavLink></li>
 
                                 </>
                                 :
@@ -42,15 +42,16 @@ const Dashboard = () => {
                                         <li><NavLink to="/dashboard/myclass"><FaSwatchbook></FaSwatchbook>My Class</NavLink></li>
                                         
                                         <div className="divider"></div>
-                                        <li><NavLink to="/">Home</NavLink></li>
+                                        <li><NavLink to="/"><FaHome></FaHome>Home</NavLink></li>
 
                                     </>
                                     :
                                     <>
                                         <li><NavLink to="/dashboard/myselectedclass"><FaBook></FaBook>My Selected Class</NavLink></li>
                                         <li><NavLink to="/dashboard/myenrollclass"><FaSwatchbook></FaSwatchbook>My Enroll Class</NavLink></li>
+                                        <li><NavLink to="/dashboard/paymenthistory"><FaAlipay></FaAlipay>My Payment History</NavLink></li>
                                         <div className="divider"></div>
-                                        <li><NavLink to="/">Home</NavLink></li>
+                                        <li><NavLink to="/"><FaHome></FaHome>Home</NavLink></li>
 
                                     </>
                         }
