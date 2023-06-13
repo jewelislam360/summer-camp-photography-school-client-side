@@ -1,7 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import SectionTitle from "../../Components/SectionTitle/SectionTitle";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
-const Classes = (status) => {
+
+const PopularClass = () => {
+
     const { data: approveClass = [], isLoading: loading } = useQuery({
         queryKey: ['approveClass'],
         queryFn: async () => {
@@ -13,12 +15,12 @@ const Classes = (status) => {
     return (
         <div>
             <SectionTitle
-                heading="All Classes"
+                heading="Popular Classes"
 
             ></SectionTitle>
             <div className="grid md:grid-cols-3">
             {
-                approveClass.map(item => <p key={item._id}>
+                approveClass.slice(0,7).map(item => <p key={item._id}>
                     <div className="card w-96 bg-base-100 shadow-xl">
                         <figure className="px-10 pt-10">
                             <img src={item.image} alt="Shoes" className="rounded-xl w-full " />
@@ -41,4 +43,4 @@ const Classes = (status) => {
     );
 };
 
-export default Classes;
+export default PopularClass;

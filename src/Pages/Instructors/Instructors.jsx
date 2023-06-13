@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../../Components/SectionTitle/SectionTitle";
 
 const Instructors = (instructor) => {
-    const { data: allInstructor = [], isLoading: loading } = useQuery({
+    const { data: allInstructor = [],} = useQuery({
         queryKey: ['allInstructor'],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/users/${instructor}`);
