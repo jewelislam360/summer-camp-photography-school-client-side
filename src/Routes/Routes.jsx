@@ -12,6 +12,8 @@ import AddAClass from "../Pages/Dashbord/Instructor/AddAClass/AddAClass";
 import ManageClasses from "../Pages/Dashbord/Admin/ManageClasses/ManageClasses";
 import Classes from "../Pages/Classes/Classes";
 import Instructors from "../Pages/Instructors/Instructors";
+import UserSelectClass from "../Pages/Dashbord/UserSelectClass/UserSelectClass";
+import Payment from "../Pages/Dashbord/Payment/Payment";
 
 export const router = createBrowserRouter([
   {
@@ -62,7 +64,18 @@ export const router = createBrowserRouter([
       {
         path:'manageclasses',
         element:<ManageClasses></ManageClasses>
-      }
+      },
+      {
+        path:'myselectedclass',
+        element:<UserSelectClass></UserSelectClass>
+      },
+      {
+        path:'/dashboard/payment/:id',
+        element:<Payment></Payment>,
+        loader: ({params})=>fetch(`http://localhost:5000/payment/${params.id}`)
+        
+      },
+      
     ]
   }
 ]);

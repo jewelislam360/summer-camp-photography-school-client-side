@@ -19,9 +19,9 @@ const Instructors = (instructor) => {
                 {
                     allInstructor.map(instructor => <p key={instructor._id}>
 
-                        <div className="card w-96 bg-base-100 shadow-xl">
+                        <div className="card w-full bg-base-100 shadow-xl">
                             <figure className="px-12 py-5">
-                                <img className="rounded-full" src={instructor.image} alt="Shoes" />
+                                <img className="rounded-lg h-40" src={instructor.image} alt="Shoes" />
                                 </figure>
                             <div className="card-body items-center text-center">
                                 <h2 className="card-title">Name: {instructor.name}</h2>

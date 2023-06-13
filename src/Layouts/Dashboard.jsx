@@ -47,10 +47,8 @@ const Dashboard = () => {
                                     </>
                                     :
                                     <>
-                                        <li><NavLink to="/myselectedclass"><FaBook></FaBook>My Selected Class</NavLink></li>
-                                        <li><NavLink to="myenrollclass"><FaSwatchbook></FaSwatchbook>My Enroll Class</NavLink></li>
-                                        <li><NavLink to="payment"><FaSwatchbook></FaSwatchbook>My Enroll Class</NavLink></li>
-                                        <li><NavLink to="payment"><FaSwatchbook></FaSwatchbook>Payment</NavLink></li>
+                                        <li><NavLink to="/dashboard/myselectedclass"><FaBook></FaBook>My Selected Class</NavLink></li>
+                                        <li><NavLink to="/dashboard/myenrollclass"><FaSwatchbook></FaSwatchbook>My Enroll Class</NavLink></li>
                                         <div className="divider"></div>
                                         <li><NavLink to="/">Home</NavLink></li>
 

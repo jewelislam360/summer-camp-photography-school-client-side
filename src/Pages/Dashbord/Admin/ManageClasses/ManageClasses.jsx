@@ -5,10 +5,11 @@ import Swal from "sweetalert2";
 
 
 const ManageClasses = () => {
+ 
 
 
 
-    const {data: allclass = [], isLoading: loading, refetch} = useQuery({
+    const {data: allclass = [],  refetch} = useQuery({
         queryKey: ['allclass'],
         queryFn: async() => {
             const res = await fetch('http://localhost:5000/allclass');
