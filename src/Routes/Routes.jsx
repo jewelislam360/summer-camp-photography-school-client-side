@@ -5,14 +5,13 @@ import Main from "../Layouts/Main";
 import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
-import PrivetRouts from "./PrivetRouts";
-import Secret from "../Pages/Shared/Secret/Secret";
 import ErrorPage from "../Components/ErrorPage/ErrorPage";
 import Dashboard from "../Layouts/Dashboard";
 import ManageUsers from "../Pages/Dashbord/ManageUsers/ManageUsers";
 import AddAClass from "../Pages/Dashbord/Instructor/AddAClass/AddAClass";
 import ManageClasses from "../Pages/Dashbord/Admin/ManageClasses/ManageClasses";
 import Classes from "../Pages/Classes/Classes";
+import Instructors from "../Pages/Instructors/Instructors";
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +28,10 @@ export const router = createBrowserRouter([
         element: <Classes></Classes>
       },
       {
+        path: "/allinstructor",
+        element: <Instructors></Instructors>
+      },
+      {
         path: "/login",
         element: <Login></Login>
       },
@@ -36,10 +39,7 @@ export const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>
       },
-      {
-        path: "/secret",
-        element: <PrivetRouts><Secret></Secret></PrivetRouts>
-      }
+      
     ]
 
   },

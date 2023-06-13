@@ -1,7 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import SectionTitle from "../../Components/SectionTitle/SectionTitle";
+import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 
-const Instructors = (instructor) => {
+const PopularInstructor = (instructor) => {
+
+
     const { data: allInstructor = [], isLoading: loading } = useQuery({
         queryKey: ['allInstructor'],
         queryFn: async () => {
@@ -13,11 +15,12 @@ const Instructors = (instructor) => {
     return (
         <div>
             <SectionTitle
-            heading="All Instructors List"
+            heading="Popular Instructors"
+            
             ></SectionTitle>
             <div className="grid md:grid-cols-3 gap-4">
                 {
-                    allInstructor.map(instructor => <p key={instructor._id}>
+                    allInstructor.slice(0,7).map(instructor => <p key={instructor._id}>
 
                         <div className="card w-96 bg-base-100 shadow-xl">
                             <figure className="px-12 py-5">
@@ -31,11 +34,9 @@ const Instructors = (instructor) => {
                     </p>)
                 }
             </div>
-
-
-
+            
         </div>
     );
 };
 
-export default Instructors;
+export default PopularInstructor;
