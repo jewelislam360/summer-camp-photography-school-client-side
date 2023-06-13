@@ -28,7 +28,6 @@ const UserSelectClass = (email) => {
             
             ></SectionTitle>
 
-            {secectClass.length}
 
 <div className="overflow-x-auto">
   <table className="table">

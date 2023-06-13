@@ -31,7 +31,8 @@ const Classes = (status) => {
                    instructorName: item.instructorName,
                     availableSeats: item.availableSeats,
                      price: item.price,
-                      email: user.email
+                      email: user.email,
+                      enrolledStudent: item.enrolledStudent
             }
             fetch('http://localhost:5000/selectedclass',{
                 method: "POST",
@@ -75,7 +76,8 @@ const Classes = (status) => {
                             <h2 className="card-title">{item?.className}</h2>
                             <p className="font-semibold"><span className="font-bold">Instructor Name:</span> {item?.instructorName}</p>
                             <p className="font-semibold"><span className="font-bold">Available Seats: </span> {item?.availableSeats}</p>
-                            <p className="font-semibold"> <span className="font-bold">Price:: </span> ${item?.price}</p>
+                            <p className="font-semibold"> <span className="font-bold">Price: </span> ${item?.price}</p>
+                            <p className="font-semibold"> <span className="font-bold">Enrolled: </span> ${item?.enrolledStudent}</p>
                             <div className="card-actions">
                                 <button onClick={()=>handelSelect(item)}  className={isAdmin || isInstructor ? "btn btn-primary btn-disabled": "btn btn-primary"}>Select</button>
                                 
