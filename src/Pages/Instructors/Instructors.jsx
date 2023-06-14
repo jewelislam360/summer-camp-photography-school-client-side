@@ -1,13 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
 import SectionTitle from "../../Components/SectionTitle/SectionTitle";
+import useAuth from "../../Hooks/useAuth";
 
-const Instructors = (instructor) => {
+const Instructors = () => {
+    const {user}=useAuth();
     const { data: allInstructor = [],} = useQuery({
         queryKey: ['allInstructor'],
         queryFn: async () => {
-            const res = await fetch(`https://b7a12-summer-camp-server-side-jewelislam360.vercel.app/users/${instructor}`);
+            const res = await fetch(`https://b7a12-summer-camp-server-side-jewelislam360.vercel.app/users/${user?.instructor}`);
             console.log(res);
-            return res.json(instructor);
+            return res.json();
         }
     })
     return (

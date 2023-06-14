@@ -4,44 +4,44 @@ import { FaCcAmazonPay, FaTrashAlt } from "react-icons/fa";
 import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
 import useAuth from "../../../Hooks/useAuth";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
 
 
-const UserSelectClass = (email) => {
-    const auth = useAuth();
+const UserSelectClass = () => {
+    const {user, loading}= useAuth();
     // console.log(user);
-    console.log(email);
-    const { data: secectClass = []} = useQuery({
+    const { data: secectClass = [], refetch } = useQuery({
         queryKey: ['secectClass'],
         queryFn: async () => {
-            const res = await fetch(`https://b7a12-summer-camp-server-side-jewelislam360.vercel.app/selectedclass/${auth.user.email}`);
-            return res.json(email);
+            const res = await fetch(`https://b7a12-summer-camp-server-side-jewelislam360.vercel.app/selectedclass/${user?.email}`);
+            return res.json();
         }
         
     })
 
 
-  //   const handelDelete=(id)=>(
-  //     fetch(`https://b7a12-summer-camp-server-side-jewelislam360.vercel.app/selectedclass/${id}`,{
-  //         method:"DELETE"
-  //     })
-  //     .then(res=>res.json())
-  //     .then(data=>{
-  //         console.log(data);
-  //         if(data.deletedCount){
-  //             refetch()
-  //             Swal.fire({
-  //                 position: 'center',
-  //                 icon: 'error',
-  //                 title: 'Delete is successfully',
-  //                 showConfirmButton: false,
-  //                 timer: 1500
-  //             });
+    const handelDelete=(id)=>(
+      fetch(`https://b7a12-summer-camp-server-side-jewelislam360.vercel.app/selectedclass/${id}`,{
+          method:"DELETE"
+      })
+      .then(res=>res.json())
+      .then(data=>{
+          console.log(data);
+          if(data.deletedCount){
+              refetch()
+              Swal.fire({
+                  position: 'center',
+                  icon: 'error',
+                  title: 'Delete is successfully',
+                  showConfirmButton: false,
+                  timer: 1500
+              });
 
-  //         }
+          }
 
-  //     })
+      })
 
-  // )
+  )
    
      
     
@@ -101,7 +101,7 @@ const UserSelectClass = (email) => {
             </td>
             
             <td><Link to={`/dashboard/payment/${classes._id}`}><button className="btn btn-ghost bg-warning"><FaCcAmazonPay></FaCcAmazonPay></button></Link></td>
-            <td><button  className="btn btn-ghost bg-red-600"><FaTrashAlt></FaTrashAlt></button></td>
+            <td><button onClick={()=>handelDelete(classes._id)}  className="btn btn-ghost bg-red-600"><FaTrashAlt></FaTrashAlt></button></td>
             
             </tr> 
             )

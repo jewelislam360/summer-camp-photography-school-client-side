@@ -4,13 +4,13 @@ import { app } from "../firebase/firebase.config";
 import axios from "axios";
 
 
-export const AuthContext = createContext(null);
+export const AuthContext = createContext();
 
 const auth = getAuth(app);
 
 const Authprovider = ({children}) => {
-    const [user, setUser] = useState();
-    const [loading, setLoading]= useState();
+    const [user, setUser] = useState(null);
+    const [loading, setLoading]= useState(true);
     const googleProvider = new GoogleAuthProvider();
 
     // update user profile
@@ -42,7 +42,7 @@ const Authprovider = ({children}) => {
     }
 
     const logOut =()=>{
-        setLoading(true);
+       
         return signOut(auth)
     }
 
@@ -63,8 +63,9 @@ const Authprovider = ({children}) => {
             }
             else{
                 localStorage.removeItem('access-token')
+                setLoading(false);
             }
-            setLoading(false);
+            
         });
         return()=>{
             return unsubscribe();
