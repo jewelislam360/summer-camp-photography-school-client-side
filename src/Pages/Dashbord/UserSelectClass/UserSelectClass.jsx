@@ -10,7 +10,7 @@ const UserSelectClass = (email) => {
     const auth = useAuth();
     // console.log(user);
     console.log(email);
-    const { data: secectClass = [] } = useQuery({
+    const { data: secectClass = []} = useQuery({
         queryKey: ['secectClass'],
         queryFn: async () => {
             const res = await fetch(`http://localhost:5000/selectedclass/${auth.user.email}`);
@@ -18,6 +18,30 @@ const UserSelectClass = (email) => {
         }
         
     })
+
+
+  //   const handelDelete=(id)=>(
+  //     fetch(`http://localhost:5000/selectedclass/${id}`,{
+  //         method:"DELETE"
+  //     })
+  //     .then(res=>res.json())
+  //     .then(data=>{
+  //         console.log(data);
+  //         if(data.deletedCount){
+  //             refetch()
+  //             Swal.fire({
+  //                 position: 'center',
+  //                 icon: 'error',
+  //                 title: 'Delete is successfully',
+  //                 showConfirmButton: false,
+  //                 timer: 1500
+  //             });
+
+  //         }
+
+  //     })
+
+  // )
    
      
     
@@ -77,7 +101,7 @@ const UserSelectClass = (email) => {
             </td>
             
             <td><Link to={`/dashboard/payment/${classes._id}`}><button className="btn btn-ghost bg-warning"><FaCcAmazonPay></FaCcAmazonPay></button></Link></td>
-            <td><button className="btn btn-ghost bg-red-600"><FaTrashAlt></FaTrashAlt></button></td>
+            <td><button  className="btn btn-ghost bg-red-600"><FaTrashAlt></FaTrashAlt></button></td>
             
             </tr> 
             )
