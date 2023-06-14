@@ -14,6 +14,7 @@ const Instructors = (instructor) => {
         <div>
             <SectionTitle
             heading="All Instructors List"
+            subHeading="Photography schools are some of the most acclaimed and renowned institutions in the world."
             ></SectionTitle>
             <div className="grid md:grid-cols-3 gap-4">
                 {

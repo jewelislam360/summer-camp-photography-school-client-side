@@ -66,6 +66,7 @@ const PopularClass = (status) => {
         <div >
             <SectionTitle
                 heading="Popular Classes"
+                subHeading="Photography schools are some of the most acclaimed and renowned institutions in the world."
 
             ></SectionTitle>
             <div className="grid md:grid-cols-3">
