@@ -21,6 +21,7 @@ const UserSelectClass = () => {
 
 
     const handelDelete=(id)=>(
+       
       fetch(`https://b7a12-summer-camp-server-side-jewelislam360.vercel.app/selectedclass/${id}`,{
           method:"DELETE"
       })

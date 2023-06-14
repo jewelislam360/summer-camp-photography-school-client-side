@@ -81,7 +81,7 @@ const PopularClass = (status) => {
                             <p className="font-semibold"><span className="font-bold">Instructor Name:</span> {item.instructorName}</p>
                             <p className="font-semibold"><span className="font-bold">Available Seats: </span> {item.availableSeats}</p>
                             <p className="font-semibold"> <span className="font-bold">Price: </span> ${item.price}</p>
-                            <p className="font-semibold"> <span className="font-bold">Enrolled: </span> ${item?.enrolledStudent}</p>
+                            <p className="font-semibold"> <span className="font-bold">Enrolled </span> {item?.enrolledStudent}</p>
                             <div className="card-actions">
                                 <button onClick={()=>handelSelect(item)}  className={isAdmin || isInstructor ? "btn btn-primary btn-disabled": "btn btn-primary"}>Select</button>
                                 

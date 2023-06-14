@@ -1,6 +1,7 @@
 [Click here to live link](https://summer-camp-photography.web.app)
 
  #### Project name : Photography school ####
+ #### Project Logo #### : ("https://i.ibb.co/yXGthYf/logop.png")
 
  * Total page Uses:
     * home page 
