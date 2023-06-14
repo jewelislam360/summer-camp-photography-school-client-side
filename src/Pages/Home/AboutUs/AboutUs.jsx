@@ -1,44 +1,25 @@
-// import SectionTitle from "../../../Components/SectionTitle/SectionTitle";
-// import Lottie from 'react-lottie';
-// import * as animationData from '../../../../public/abc.json'
 
 
 const AboutUs = () => {
+    return (
+        <div className="md:flex gap-8 text-center items-center">
+            <div>
+                <p>Photography schools are some of the most acclaimed and renowned institutions in the world.
 
+                    Some are standalone colleges that teach nothing but photography – analogue and film. Others are art and design institutions that teach a broad range of visual and creative arts.
 
+                    Then there are some that are a single element of a much larger university that teaches everything from Veterinary Science to Bee Keeping.
 
-//     const defaultOptions = {
-//         loop: true,
-//         autoplay: true,
-//         animationData: animationData,
-//         rendererSettings: {
-//             preserveAspectRatio: 'xMidYMid slice'
-//         }
-//     };
+                    In this article, we take a look at the very best photography schools around the world in 2023.
 
-//     return (
-//         <section>
-//             <SectionTitle
-//                 heading={"About Us"}
-//                 subHeading={"About Us"}
-//             >
-//             </SectionTitle>
+                    While there are countless learning institutes globally (not to mention online photography classes/courses), I have chosen renowned, highly acclaimed or ones that simply offer the best and most unique program.
 
-//             <div className="flex">
-//                 <div>
-//                 <Lottie options={defaultOptions}
-//                 height={400}
-//                 width={400}
-//                 isStopped={this.state.isStopped}
-//                 isPaused={this.state.isPaused} />
-        
-//                 </div>
-//                 <div>dgdfgfg</div>
-//             </div>
+                    Let’s get into it and look at the best photography schools worldwide – region by region.</p>
+            </div>
+            <div></div>
 
-
-//         </section >
-//     );
+        </div>
+    );
 };
 
 export default AboutUs;

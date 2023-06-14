@@ -13,9 +13,10 @@ const Home = () => {
         <title>Photography | Home</title>
         </Helmet>
             <Banner></Banner>
+            <AboutUs></AboutUs>
             <PopularInstructor></PopularInstructor>
             <PopularClass></PopularClass>
-            <AboutUs></AboutUs>
+            
             
         </div>
     );
