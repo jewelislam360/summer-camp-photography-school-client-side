@@ -16,7 +16,7 @@ const Classes = (status) => {
     const { data: approveClass = [], } = useQuery({
         queryKey: ['approveClass'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/allclass/${status}`);
+            const res = await fetch(`https://b7a12-summer-camp-server-side-jewelislam360.vercel.app/allclass/${status}`);
             console.log(res);
             return res.json(status);
         }
@@ -34,7 +34,7 @@ const Classes = (status) => {
                       email: user.email,
                       enrolledStudent: item.enrolledStudent
             }
-            fetch('http://localhost:5000/selectedclass',{
+            fetch('https://b7a12-summer-camp-server-side-jewelislam360.vercel.app/selectedclass',{
                 method: "POST",
                 headers: 
                     {

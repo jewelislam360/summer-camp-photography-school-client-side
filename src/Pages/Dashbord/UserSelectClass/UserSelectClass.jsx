@@ -13,7 +13,7 @@ const UserSelectClass = (email) => {
     const { data: secectClass = []} = useQuery({
         queryKey: ['secectClass'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/selectedclass/${auth.user.email}`);
+            const res = await fetch(`https://b7a12-summer-camp-server-side-jewelislam360.vercel.app/selectedclass/${auth.user.email}`);
             return res.json(email);
         }
         
@@ -21,7 +21,7 @@ const UserSelectClass = (email) => {
 
 
   //   const handelDelete=(id)=>(
-  //     fetch(`http://localhost:5000/selectedclass/${id}`,{
+  //     fetch(`https://b7a12-summer-camp-server-side-jewelislam360.vercel.app/selectedclass/${id}`,{
   //         method:"DELETE"
   //     })
   //     .then(res=>res.json())

@@ -9,7 +9,7 @@ const PaymentHistory = (email) => {
     const { data: myEnrollClass = [] } = useQuery({
         queryKey: ['myEnrollClass'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myenrollclass/${auth.user.email}`);
+            const res = await fetch(`https://b7a12-summer-camp-server-side-jewelislam360.vercel.app/myenrollclass/${auth.user.email}`);
             return res.json(email);
         }
 

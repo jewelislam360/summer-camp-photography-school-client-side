@@ -7,7 +7,7 @@ const PopularInstructor = (instructor) => {
     const { data: allInstructor = [],  } = useQuery({
         queryKey: ['allInstructor'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/users/${instructor}`);
+            const res = await fetch(`https://b7a12-summer-camp-server-side-jewelislam360.vercel.app/users/${instructor}`);
             console.log(res);
             return res.json(instructor);
         }

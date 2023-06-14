@@ -12,14 +12,14 @@ const ManageClasses = () => {
     const {data: allclass = [],  refetch} = useQuery({
         queryKey: ['allclass'],
         queryFn: async() => {
-            const res = await fetch('http://localhost:5000/allclass');
+            const res = await fetch('https://b7a12-summer-camp-server-side-jewelislam360.vercel.app/allclass');
             console.log(res);
             return res.json();
         }   
     })
     
     const handelDelete=(id)=>(
-        fetch(`http://localhost:5000/allclass/${id}`,{
+        fetch(`https://b7a12-summer-camp-server-side-jewelislam360.vercel.app/allclass/${id}`,{
             method:"DELETE"
         })
         .then(res=>res.json())
@@ -42,7 +42,7 @@ const ManageClasses = () => {
     )
 
     const handelStatusApprove=(id)=>{
-        fetch(`http://localhost:5000/allclass/${id}`,{
+        fetch(`https://b7a12-summer-camp-server-side-jewelislam360.vercel.app/allclass/${id}`,{
             method:"PATCH"
         })
         .then(res=>res.json())
@@ -61,7 +61,7 @@ const ManageClasses = () => {
         })
     }
     const handelStatusPending=(id)=>{
-        fetch(`http://localhost:5000/allclass/status/${id}`,{
+        fetch(`https://b7a12-summer-camp-server-side-jewelislam360.vercel.app/allclass/status/${id}`,{
             method:"PATCH"
         })
         .then(res=>res.json())

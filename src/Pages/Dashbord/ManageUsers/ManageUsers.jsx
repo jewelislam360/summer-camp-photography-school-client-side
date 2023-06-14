@@ -6,13 +6,13 @@ import Swal from "sweetalert2";
 
 const ManageUsers = () => {
     const { data: users = [], refetch } = useQuery(['users'], async () => {
-        const res = await fetch('http://localhost:5000/users')
+        const res = await fetch('https://b7a12-summer-camp-server-side-jewelislam360.vercel.app/users')
         return res.json()
     })
 
 
     const handelMakeAdmin=(user)=>{
-        fetch(`http://localhost:5000/users/admin/${user._id}`,{
+        fetch(`https://b7a12-summer-camp-server-side-jewelislam360.vercel.app/users/admin/${user._id}`,{
             method:"PATCH"
         })
         .then(res=>res.json())
@@ -31,7 +31,7 @@ const ManageUsers = () => {
         })
     }
     const handelMakeInstructor=(user)=>{
-        fetch(`http://localhost:5000/users/instructor/${user._id}`,{
+        fetch(`https://b7a12-summer-camp-server-side-jewelislam360.vercel.app/users/instructor/${user._id}`,{
             method:"PATCH"
         })
         .then(res=>res.json())
@@ -50,7 +50,7 @@ const ManageUsers = () => {
         })
     }
     const handelDelete=(id)=>(
-        fetch(`http://localhost:5000/users/${id}`,{
+        fetch(`https://b7a12-summer-camp-server-side-jewelislam360.vercel.app/users/${id}`,{
             method:"DELETE"
         })
         .then(res=>res.json())

@@ -12,14 +12,14 @@ const MyClass = (email) => {
     const { data: myClass = [],refetch } = useQuery({
         queryKey: ['myClass'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/myaddclass/${auth.user.email}`);
+            const res = await fetch(`https://b7a12-summer-camp-server-side-jewelislam360.vercel.app/myaddclass/${auth.user.email}`);
             return res.json(email);
         }
         
     })
 
     const handelDelete=(id)=>(
-      fetch(`http://localhost:5000/allclass/${id}`,{
+      fetch(`https://b7a12-summer-camp-server-side-jewelislam360.vercel.app/allclass/${id}`,{
           method:"DELETE"
       })
       .then(res=>res.json())
